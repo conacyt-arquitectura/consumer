@@ -1,0 +1,16 @@
+
+server:
+   port: 8081
+
+spring:
+   kafka:
+     consumer:
+        bootstrap-servers: localhost:9092
+        group-id: miic
+        auto-offset-reset: earliest
+        key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+        value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+        properties:
+         spring.json.value.default.type: mx.conacyt.consumer.PersonaFisica
+         spring.json.type.mapping: "data:mx.conacyt.consumer.PersonaFisica"
+         spring.json.trusted.packages: "*"
